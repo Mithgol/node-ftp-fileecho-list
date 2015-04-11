@@ -12,5 +12,9 @@
 },
 "dependencies": {
    "async": "~0.9.0"
+},
+"scripts": {
+   "pretest": "jshint f2f-list.js test/",
+   "test": "mocha --reporter spec --timeout 60s"
 }
 }
