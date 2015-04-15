@@ -19,7 +19,7 @@ module.exports = function(listFilenames, callback){
                   return line.trim();
                }).filter(function(line){
                   if( line.length < 1 ) return false;
-                  if( /^#/.test(line) ) return false;
+                  if( line.indexOf('#') === 0 ) return false;
                   return true;
                });
                if( listLines.length < 2 ){
