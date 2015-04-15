@@ -15,11 +15,12 @@ module.exports = function(listFilenames, callback){
                if( err ) return listProcessed(err);
                var listLines = listFile.split(
                   /\r|\n/
-               ).filter(function(line){
-                  if( /^\s*$/.test(line) ) return false;
-                  return true;
-               }).map(function(line){
+               ).map(function(line){
                   return line.trim();
+               }).filter(function(line){
+                  if( line.length < 1 ) return false;
+                  if( /^#/.test(line) ) return false;
+                  return true;
                });
                if( listLines.length < 2 ){
                   // either empty or contains only the FTP server's address
