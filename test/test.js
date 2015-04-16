@@ -23,7 +23,11 @@ describe('Reader of lists of FTP-hosted Fidonet fechomail areas', function(){
             );
             assert.strictEqual(
                fecholist.xofchubslst,
-               'ftp://fido:fido@fido.liona.ru/xofchubslst/'
+               'ftp://fido.hubahuba.su/XOFCHUBS.LST/'
+            );
+            assert.strictEqual(
+               fecholist.tvannounce,
+               'ftp://fido:fido@fido.liona.ru/tvannounce/'
             );
             done();
          }

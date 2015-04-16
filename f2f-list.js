@@ -28,11 +28,26 @@ module.exports = function(listFilenames, callback){
                }
                var addressFTP = listLines.shift();
                listLines.forEach(function(line){
-                  var lcLine = line.toLowerCase();
-                  if( typeof accum[lcLine] !== 'undefined' ) return;
-                  accum[lcLine] = addressFTP + line + '/';
+                  if( line.indexOf(' ') < 0 ){
+                     // single line item: echotag only
+                     var lcLine = line.toLowerCase();
+                     if( typeof accum[lcLine] !== 'undefined' ) return;
+                     accum[lcLine] = addressFTP + line + '/';
+                  } else {
+                     // two line items: echotag and folder
+                     var matches = /^(\S+)\s+(\S+)$/.exec(line);
+                     if( matches === null ){
+                        return listProcessed({
+                           error: 'Unknown line format',
+                           line: line
+                        });
+                     }
+                     var echotag = matches[1].toLowerCase();
+                     if( typeof accum[echotag] !== 'undefined' ) return;
+                     accum[echotag] = addressFTP + matches[2] + '/';
+                  }
                });
-               listProcessed();
+               return listProcessed();
             }
          );
       },
