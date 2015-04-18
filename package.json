@@ -11,7 +11,8 @@
    "url": "https://github.com/Mithgol/node-ftp-fileecho-list.git"
 },
 "dependencies": {
-   "async": "~0.9.0"
+   "async": "~0.9.0",
+   "underscore.string": "~3.0.3"
 },
 "scripts": {
    "pretest": "jshint f2f-list.js test/",

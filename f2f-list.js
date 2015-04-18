@@ -1,6 +1,8 @@
 var fs = require('fs');
 var async = require('async');
 
+var endsWith = require('underscore.string/endsWith');
+
 module.exports = function(listFilenames, callback){
    var accum = {};
    async.eachSeries(
@@ -16,7 +18,7 @@ module.exports = function(listFilenames, callback){
                var listLines = listFile.split(
                   /\r|\n/
                ).map(function(line){
-                  return line.trim();
+                  return line.replace(/\s/g, ' ').trim();
                }).filter(function(line){
                   if( line.length < 1 ) return false;
                   if( line.indexOf('#') === 0 ) return false;
@@ -26,7 +28,10 @@ module.exports = function(listFilenames, callback){
                   // either empty or contains only the FTP server's address
                   return listProcessed();
                }
+
                var addressFTP = listLines.shift();
+               if( !endsWith(addressFTP, '/') ) addressFTP += '/';
+
                listLines.forEach(function(line){
                   if( line.indexOf(' ') < 0 ){
                      // single line item: echotag only
