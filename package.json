@@ -2,7 +2,7 @@
 "name": "ftp-fileecho-list",
 "main": "f2f-list.js",
 "version": "0.1.0",
-"description": "Node.js reader of lists containg Fidonet file echomail areas hosted on FTP servers.",
+"description": "Node.js reader of lists of FTP-mirrored fileechoes.",
 "keywords": ["Fido", "Fidonet", "fecho", "fileecho", "ftp"],
 "author": { "name": "Mithgol the Webmaster" },
 "license": "MIT",
