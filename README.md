@@ -4,8 +4,6 @@ This module (`ftp-fileecho-list`) is a reader of lists that contain Fidonet fi
 
 This module is written in JavaScript and requires [Node.js](http://nodejs.org/) to run. (Node.js version 0.10.x or 0.12.x is recommended. The latest stable [io.js](https://iojs.org/) is fine too.)
 
-The module is currently in an early phase of its development and thus does not have the desired level of feature completeness.
-
 ## Installing the reader
 
 [![(npm package version)](https://nodei.co/npm/ftp-fileecho-list.png?downloads=true&downloadRank=true)](https://npmjs.org/package/ftp-fileecho-list)
