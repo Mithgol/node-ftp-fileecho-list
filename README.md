@@ -51,6 +51,18 @@ The npm package does not contain the tests, they're published on GitHub only.
 
 You may visit https://github.com/Mithgol/node-ftp-fileecho-list#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
 
+## Using the reader
+
+When you `require()` the installed module, you get a function with the following two arguments:
+
+* `lists` — an array of full paths to files containing lists. Paths must be given in order of their importance: if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
+
+* `callback` — a function that is asynchronously called when all the lists are read. The function has the following two arguments:
+   * `error` — if not `null`, an error happened and the following argument (`descriptions`) can be missing or invalid.
+   * `URLs` — an object containing URLs (FTP addresses) of the folders that correspond to fileechoes and have been read from the given lists.
+
+Each name of a property of that `URLs` object is a lowercase version of some fileecho's name (as returned by the [`String.prototype.toLowerCase`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) method). That property's value contains the FTP address (URL) of the folder where the mirrored files of that fileecho reside. (The address ends with a `'/'` character.)
+
 ## Testing the reader
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/node-ftp-fileecho-list/master.svg?style=plastic)](https://travis-ci.org/Mithgol/node-ftp-fileecho-list)
