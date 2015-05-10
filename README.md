@@ -14,7 +14,9 @@ This JavaScript module (the reader) parses lists of FTP-mirrored fileechoes. E
 
 * Both CR (`'\r'`) and LF (`'\n'`) characters are treated as line separators.
 
-* Empty lines are ignored. Lines that contain only whitespace (i.e. character class `\s` in regular expressions) are also ignored.
+* Empty lines are ignored.
+
+* Lines that contain only a whitespace (i.e. character class `\s` in regular expressions) or several whitespaces are also ignored.
 
 * Lines that start with the `'#'` character are treated as comment lines and thus ignored. That character may be preceded by a whitespace (i.e. character class `\s` in regular expressions) or several whitespaces and such lines are ignored nevertheless.
 
@@ -30,7 +32,8 @@ This JavaScript module (the reader) parses lists of FTP-mirrored fileechoes. E
 Here's an example of such a list of FTP-mirrored fileechoes:
 
 ```
-# This server's address is fictional.
+# This line is an example of a comment.
+# The server's address (given below) is fictional.
 ftp://filemirror.example.org
 aftnbinkd
 aftnged
@@ -55,7 +58,7 @@ You may visit https://github.com/Mithgol/node-ftp-fileecho-list#readme occasiona
 
 When you `require()` the installed module, you get a function with the following two arguments:
 
-* `lists` — an array of full paths to files containing lists. Paths must be given in order of their importance: if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
+* `lists` — an array of full paths to files containing lists. Paths must be given in the reverse order of their importance (i.e. given from the most important to the least important): if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
 
 * `callback` — a function that is asynchronously called when all the lists are read. The function has the following two arguments:
    * `error` — if not `null`, an error happened and the following argument (`descriptions`) can be missing or invalid.
