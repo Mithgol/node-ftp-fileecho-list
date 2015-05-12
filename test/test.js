@@ -33,4 +33,27 @@ describe('Reader of lists of FTP-hosted Fidonet fechomail areas', function(){
          }
       );
    });
+   it('can also read an arealist of a WebBBS', function(done){
+      readerFTPFEcho(
+         [
+            path.join(__dirname, 'fido.g0x.ru.httparea')
+         ],
+         function(err, arealist){
+            if( err ) throw err;
+            assert.strictEqual(
+               arealist['enet.sysop'],
+               'http://fido.g0x.ru/?area://ENET.SYSOP/'
+            );
+            assert.strictEqual(
+               arealist['ru.blog.mithgol'],
+               'http://fido.g0x.ru/?area://RU.BLOG.MITHGOL/'
+            );
+            assert.strictEqual(
+               arealist['xsu.useless.faq'],
+               'http://fido.g0x.ru/?area://XSU.USELESS.FAQ/'
+            );
+            done();
+         }
+      );
+   });
 });
