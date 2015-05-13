@@ -66,6 +66,18 @@ When you `require()` the installed module, you get a function with the foll
 
 Each name of a property of that `URLs` object is a lowercase version of some fileecho's name (as returned by the [`String.prototype.toLowerCase`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) method). That property's value contains the FTP address (URL) of the folder where the mirrored files of that fileecho reside. (The address ends with a `'/'` character.)
 
+The following `URLs` object would be given to the callback for the list from the above example:
+
+```js
+{
+   "aftnbinkd":  "ftp://filemirror.example.org/aftnbinkd",
+   "aftnged":    "ftp://filemirror.example.org/aftnged",
+   "nodelisa":   "ftp://filemirror.example.org/nodelisa",
+   "nodelisz":   "ftp://filemirror.example.org/nodelisz",
+   "xofcelist":  "ftp://filemirror.example.org/xofcelist"
+}
+```
+
 ### Alternatives to the primary purpose
 
 The reader does not require that the first meaningful line of the list starts with `ftp://`.
