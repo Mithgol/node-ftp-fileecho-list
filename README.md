@@ -61,10 +61,36 @@ When you `require()` the installed module, you get a function with the foll
 * `lists` — an array of full paths to files containing lists. Paths must be given in the reverse order of their importance (i.e. given from the most important to the least important): if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
 
 * `callback` — a function that is asynchronously called when all the lists are read. The function has the following two arguments:
-   * `error` — if not `null`, an error happened and the following argument (`descriptions`) can be missing or invalid.
+   * `error` — if not `null`, an error happened and thus the following argument (`URLs`) can be missing or invalid.
    * `URLs` — an object containing URLs (FTP addresses) of the folders that correspond to fileechoes and have been read from the given lists.
 
 Each name of a property of that `URLs` object is a lowercase version of some fileecho's name (as returned by the [`String.prototype.toLowerCase`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase) method). That property's value contains the FTP address (URL) of the folder where the mirrored files of that fileecho reside. (The address ends with a `'/'` character.)
+
+### Alternatives to the primary purpose
+
+The reader does not require that the first meaningful line of the list starts with `ftp://`.
+
+The reader can therefore be used in various applications (not necessarily FTP-related) to read similar lists where the first line contains a common beginning of some URLs and other lines of the same list contain different endings for those URLs.
+
+For example, the reader can read an arealist (an echolist) that describes the URLs of echomail areas available on a particular WebBBS that adheres to the [FGHI URL](https://github.com/Mithgol/FGHI-URL) standard; such list might look like the following:
+
+```
+# The server's address (given below) is fictional.
+http://bbs.example.org/?area://
+FTSC_PUBLIC
+RU.FTN.DEVELOP
+SU.FIDOTECH
+```
+
+The reader is quite able to read that list and then use the given callback to return the following object:
+
+```js
+{
+   "ftsc_public":     "http://bbs.example.org/?area://FTSC_PUBLIC/",
+   "ru.ftn.develop":  "http://bbs.example.org/?area://RU.FTN.DEVELOP/",
+   "su.fidotech":     "http://bbs.example.org/?area://SU.FIDOTECH/"
+}
+```
 
 ## Testing the reader
 
