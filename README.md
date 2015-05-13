@@ -8,7 +8,7 @@ This module is written in JavaScript and requires [Node.js](http://nodejs.org
 
 A **fileecho** is a **file echomail area** in Fidonet or in some other FTN (Fidonet-type network). A fileecho is a medium that distributes files to its subscribers.
 
-**FTP mirrors** of some fileechoes exist. They are (usually) FTP-accessible directories where each subdirectory corresponds to a fileecho of the same (or similar) name and contain a number of files recently distibuted to the subscribers of that fileecho.
+**FTP mirrors** of some fileechoes exist. They are (usually) FTP-accessible directories where each subdirectory corresponds to a fileecho of the same (or similar) name and contains a bunch of files recently distibuted to the subscribers of that fileecho.
 
 This JavaScript module (the reader) parses lists of FTP-mirrored fileechoes. Each list is treated as a text file and parsed in the following order:
 
