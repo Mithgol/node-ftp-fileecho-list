@@ -70,11 +70,11 @@ The following `URLs` object would be given to the callback for the list fro
 
 ```js
 {
-   "aftnbinkd":  "ftp://filemirror.example.org/aftnbinkd",
-   "aftnged":    "ftp://filemirror.example.org/aftnged",
-   "nodelisa":   "ftp://filemirror.example.org/nodelisa",
-   "nodelisz":   "ftp://filemirror.example.org/nodelisz",
-   "xofcelist":  "ftp://filemirror.example.org/xofcelist"
+   "aftnbinkd":  "ftp://filemirror.example.org/aftnbinkd/",
+   "aftnged":    "ftp://filemirror.example.org/aftnged/",
+   "nodelisa":   "ftp://filemirror.example.org/nodelisa/",
+   "nodelisz":   "ftp://filemirror.example.org/nodelisz/",
+   "xofcelist":  "ftp://filemirror.example.org/xofcelist/"
 }
 ```
 
