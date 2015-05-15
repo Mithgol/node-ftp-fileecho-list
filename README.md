@@ -56,7 +56,11 @@ You may visit https://github.com/Mithgol/node-ftp-fileecho-list#readme occasiona
 
 ## Using the reader
 
-When you `require()` the installed module, you get a function with the following two arguments:
+When you `require()` the installed module, you get an object with the following two methods:
+
+### async(lists, callback)
+
+This method has the following arguments:
 
 * `lists` — an array of full paths to files containing lists. Paths must be given in the reverse order of their importance (i.e. given from the most important to the least important): if a particular fileecho is present in several lists, that fileecho's URL is based on the first (and not the last) of such lists.
 
@@ -78,7 +82,15 @@ The following `URLs` object would be given to the callback for the list fro
 }
 ```
 
-### Alternatives to the primary purpose
+### sync(lists)
+
+Same as above, but with the following differences:
+
+* The `URLs` object is constructed synchronously and then returned from the method (using `return`).
+
+* Any encountered errors are thrown (using `throw`).
+
+## Possible alternatives to the primary purpose
 
 The reader does not require that the first meaningful line of the list starts with `ftp://`.
 

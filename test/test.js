@@ -1,11 +1,11 @@
 /* global describe, it */
 var assert = require('assert');
 var path = require('path');
-var readerFTPFEcho = require('../');
+var listReader = require('../');
 
-describe('Reader of lists of FTP-hosted Fidonet fechomail areas', function(){
+describe('Asynchronous reader of lists of FTP-mirrored fechomail', function(){
    it('can read two such lists correctly', function(done){
-      readerFTPFEcho(
+      listReader.async(
          [
             path.join(__dirname, 'fido.hubahuba.su.ftpfecho'),
             path.join(__dirname, 'fido.liona.ru.ftpfecho')
@@ -34,7 +34,7 @@ describe('Reader of lists of FTP-hosted Fidonet fechomail areas', function(){
       );
    });
    it('can also read an arealist of a WebBBS', function(done){
-      readerFTPFEcho(
+      listReader.async(
          [
             path.join(__dirname, 'fido.g0x.ru.httparea')
          ],
@@ -54,6 +54,47 @@ describe('Reader of lists of FTP-hosted Fidonet fechomail areas', function(){
             );
             done();
          }
+      );
+   });
+});
+
+describe('Synchronous reader of lists of FTP-mirrored fechomail', function(){
+   it('can read two such lists correctly', function(){
+      var fecholist = listReader.sync([
+         path.join(__dirname, 'fido.hubahuba.su.ftpfecho'),
+         path.join(__dirname, 'fido.liona.ru.ftpfecho')
+      ]);
+      assert.strictEqual(
+         fecholist.aftnged, 'ftp://fido.hubahuba.su/AFTNGED/'
+      );
+      assert.strictEqual(
+         fecholist.aftnbinkd, 'ftp://fido:fido@fido.liona.ru/aftnbinkd/'
+      );
+      assert.strictEqual(
+         fecholist.z2pnt, 'ftp://fido.hubahuba.su/Z2PNT/'
+      );
+      assert.strictEqual(
+         fecholist.xofchubslst, 'ftp://fido.hubahuba.su/XOFCHUBS.LST/'
+      );
+      assert.strictEqual(
+         fecholist.tvannounce, 'ftp://fido:fido@fido.liona.ru/tvannounce/'
+      );
+   });
+   it('can also read an arealist of a WebBBS', function(){
+      var arealist = listReader.sync([
+         path.join(__dirname, 'fido.g0x.ru.httparea')
+      ]);
+      assert.strictEqual(
+         arealist['enet.sysop'],
+         'http://fido.g0x.ru/?area://ENET.SYSOP/'
+      );
+      assert.strictEqual(
+         arealist['ru.blog.mithgol'],
+         'http://fido.g0x.ru/?area://RU.BLOG.MITHGOL/'
+      );
+      assert.strictEqual(
+         arealist['xsu.useless.faq'],
+         'http://fido.g0x.ru/?area://XSU.USELESS.FAQ/'
       );
    });
 });
