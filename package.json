@@ -1,7 +1,7 @@
 {
 "name": "ftp-fileecho-list",
 "main": "f2f-list.js",
-"version": "2.0.0",
+"version": "2.0.1",
 "description": "Node.js reader of lists of FTP-mirrored fileechoes.",
 "keywords": ["Fido", "Fidonet", "fecho", "fileecho", "ftp"],
 "author": { "name": "Mithgol the Webmaster" },
@@ -11,7 +11,7 @@
    "url": "https://github.com/Mithgol/node-ftp-fileecho-list.git"
 },
 "dependencies": {
-   "async": "~0.9.0",
+   "async": "~1.0.0",
    "underscore.string": "~3.0.3"
 },
 "scripts": {
