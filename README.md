@@ -2,7 +2,7 @@
 
 This module (`ftp-fileecho-list`) is a reader of lists of FTP-mirrored fileechoes.
 
-This module is written in JavaScript and requires [Node.js](http://nodejs.org/) to run. (Node.js version 0.10.x or 0.12.x is recommended. The latest stable [io.js](https://iojs.org/) is fine too.)
+This module is written in JavaScript and requires [Node.js](http://nodejs.org/) to run. It is tested against Node.js v0.10.x, Node.js v0.12.x, Node.js v4.0.x and the latest stable version of io.js.
 
 ## Lists of FTP-mirrored fileechoes
 
