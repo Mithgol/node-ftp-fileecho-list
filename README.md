@@ -39,7 +39,7 @@ aftnbinkd
 aftnged
 nodelisa
 nodelisz
-xofcelist
+xofcelist xofcel
 ```
 
 ## Installing the reader
@@ -78,7 +78,7 @@ The following `URLs` object would be given to the callback for the list fro
    "aftnged":    "ftp://filemirror.example.org/aftnged/",
    "nodelisa":   "ftp://filemirror.example.org/nodelisa/",
    "nodelisz":   "ftp://filemirror.example.org/nodelisz/",
-   "xofcelist":  "ftp://filemirror.example.org/xofcelist/"
+   "xofcelist":  "ftp://filemirror.example.org/xofcel/"
 }
 ```
 
