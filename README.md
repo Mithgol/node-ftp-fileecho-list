@@ -2,7 +2,9 @@
 
 This module (`ftp-fileecho-list`) is a reader of lists of FTP-mirrored fileechoes.
 
-This module is written in JavaScript and requires [Node.js](http://nodejs.org/) to run. It is tested against Node.js v0.10.x, Node.js v0.12.x, Node.js v4.0.x and the latest stable version of io.js.
+This module is written in JavaScript and requires [Node.js](http://nodejs.org/) to run.
+* Starting from v3.0.0, this module requires Node.js version 4.0.0 or newer.
+* You may run older versions of this module in Node.js version 0.10.x or 0.12.x. These older versions, however, had to contain an additional dependency ([`underscore.string`](https://www.npmjs.com/package/underscore.string)) to work around a missing [ECMAScript 2015 (ES6) feature](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith) which is now a part of Node.js.
 
 ## Lists of FTP-mirrored fileechoes
 

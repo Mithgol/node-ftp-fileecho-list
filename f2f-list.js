@@ -1,8 +1,6 @@
 var fs = require('fs');
 var async = require('async');
 
-var endsWith = require('underscore.string/endsWith');
-
 module.exports = {
    async: function(listFilenames, callback){
       var accum = {};
@@ -31,7 +29,7 @@ module.exports = {
                   }
 
                   var addressFTP = listLines.shift();
-                  if( !endsWith(addressFTP, '/') ) addressFTP += '/';
+                  if(!( addressFTP.endsWith('/') )) addressFTP += '/';
 
                   listLines.forEach(function(line){
                      if( line.indexOf(' ') < 0 ){
@@ -79,7 +77,7 @@ module.exports = {
          // file is either empty or contains only the FTP server's address
 
          var addressFTP = listLines.shift();
-         if( !endsWith(addressFTP, '/') ) addressFTP += '/';
+         if(!( addressFTP.endsWith('/') )) addressFTP += '/';
 
          listLines.forEach(function(line){
             if( line.indexOf(' ') < 0 ){
