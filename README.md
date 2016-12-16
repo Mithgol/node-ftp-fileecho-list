@@ -122,7 +122,7 @@ The reader is quite able to read that list and then use the given callback
 
 [![(build testing status)](https://img.shields.io/travis/Mithgol/node-ftp-fileecho-list/master.svg?style=plastic)](https://travis-ci.org/Mithgol/node-ftp-fileecho-list)
 
-It is necessary to install [Mocha](http://visionmedia.github.io/mocha/) and [JSHint](http://jshint.com/) for testing.
+It is necessary to install [Mocha](https://mochajs.org/) and [JSHint](http://jshint.com/) for testing.
 
 * You may install Mocha globally (`npm install mocha -g`) or locally (`npm install mocha` in the directory of the reader).
 
